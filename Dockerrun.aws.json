@@ -19,9 +19,19 @@
             "essential": false
         },
         {
-            "name":"nginx",
-            "image":"calebikhuohon/complesso-nginx",
-            "essential":true
+            "name": "nginx",
+            "image": "calebikhuohon/complesso-nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": [
+                "client",
+                "server"
+            ]
         }
     ]
 }
