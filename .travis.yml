@@ -1,0 +1,23 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t calebikhuohon/complesso-client-test -f ./client/Dockerfile.dev ./client
+
+script:
+    - docker run -e CI=true calebikhuohon/complesso-client-test npm run test 
+
+after_success:
+    - docker build -t calebikhuohon/complesso-client ./client
+    - docker build -t calebikhuohon/complesso-nginx ./nginx
+    - docker build -t calebikhuohon/complesso-server ./server
+    - docker build -t calebikhuohon/complesso-worker ./worker
+    # log into the docker CLI
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    # push the above images to docker hub
+    - docker push calebikhuohon/complesso-client
+    - docker push calebikhuohon/complesso-nginx
+    - docker push calebikhuohon/complesso-server
+    - docker push calebikhuohon/complesso-worker
+    
