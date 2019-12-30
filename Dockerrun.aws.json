@@ -1,0 +1,27 @@
+{
+    "AWSEBDockerrunVersion": "2",
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "calebikhuohon/complesso-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "calebikhuohon/complesso-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "calebikhuohon/complesso-worker",
+            "essential": false
+        },
+        {
+            "name":"nginx",
+            "image":"calebikhuohon/complesso-nginx",
+            "essential":true
+        }
+    ]
+}
