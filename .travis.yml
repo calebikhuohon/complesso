@@ -20,6 +20,10 @@ after_success:
     - docker push calebikhuohon/complesso-nginx
     - docker push calebikhuohon/complesso-server
     - docker push calebikhuohon/complesso-worker
+    - aws sts get-caller-identity
+    - aws configure list
+    - echo $AWS_SECRET_KEY
+    - echo $AWS_ACCESS_KEY
 
 deploy:
     provider: elaticbeanstalk 
