@@ -20,6 +20,7 @@ after_success:
     - docker push calebikhuohon/complesso-nginx
     - docker push calebikhuohon/complesso-server
     - docker push calebikhuohon/complesso-worker
+    - travis encrypt $AWS_ACCESS_KEY --add deploy.api_key --org
 
 deploy:
     provider: elaticbeanstalk 
