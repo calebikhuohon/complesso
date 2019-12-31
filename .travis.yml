@@ -29,8 +29,8 @@ deploy:
     bucket_path: complesso
     on:
         branch: master
-    aws_access_key_id: $AWS_ACCESS_KEY
-    aws_secret_access_key: 
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: 
         secure: $AWS_SECRET_KEY
     aws_session_token: 
         secure: $AWS_SESSION_TOKEN
