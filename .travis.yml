@@ -20,10 +20,6 @@ after_success:
     - docker push calebikhuohon/complesso-nginx
     - docker push calebikhuohon/complesso-server
     - docker push calebikhuohon/complesso-worker
-    - aws sts get-caller-identity
-    - aws configure list
-    - echo $AWS_SECRET_KEY
-    - echo $AWS_ACCESS_KEY
 
 deploy:
     provider: elaticbeanstalk 
@@ -33,8 +29,7 @@ deploy:
     bucket_path: complesso
     on:
         branch: master
-    access_key_id: $AWS_ACCESS_KEY
+    access_key_id: 
+        secure: $AWS_ACCESS_KEY
     secret_access_key: 
         secure: $AWS_SECRET_KEY
-    aws_session_token: 
-        secure: $AWS_SESSION_TOKEN
