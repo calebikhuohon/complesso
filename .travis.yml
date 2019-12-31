@@ -21,14 +21,14 @@ after_success:
     - docker push calebikhuohon/complesso-server
     - docker push calebikhuohon/complesso-worker
 
-deploy:
-    provider: elaticbeanstalk 
-    region: us-east-1
-    env: Complesso-env
-    bucket_name: elasticbeanstalk-us-east-1-864077713985
-    bucket_path: complesso
-    on:
-        branch: master
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: 
-        secure: $AWS_SECRET_KEY
+# deploy:
+#     provider: elaticbeanstalk 
+#     region: us-east-1
+#     env: Complesso-env
+#     bucket_name: elasticbeanstalk-us-east-1-864077713985
+#     bucket_path: complesso
+#     on:
+#         branch: master
+#     access_key_id: $AWS_ACCESS_KEY
+#     secret_access_key: 
+#         secure: $AWS_SECRET_KEY
