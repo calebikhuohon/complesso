@@ -3,17 +3,17 @@ kind: Deployment
 metadata:
   name: client-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector: 
     matchLabels:
       component: web
   template:
-    metadata: 
+    metadata:
       labels:
         component: web
     spec:
       containers:
-        - name: client-deployment
+        - name: client
           image: calebikhuohon/complesso-client
           resources:
             limits:
