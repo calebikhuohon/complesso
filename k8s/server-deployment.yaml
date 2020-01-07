@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: server-deployment
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       component: server
@@ -15,10 +15,10 @@ spec:
       containers:
       - name: server
         image: calebikhuohon/complesso-server
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        # resources:
+        #   limits:
+        #     memory: "8Mi"
+        #     cpu: "50m"
         ports:
           - containerPort: 5000
         env:
